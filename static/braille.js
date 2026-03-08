@@ -1,0 +1,74 @@
+// Braille Unicode Mapping (6-dot system)
+// Each character maps to a 6-dot pattern
+const BRAILLE_MAP = {
+    'a': [1, 0, 0, 0, 0, 0],
+    'b': [1, 1, 0, 0, 0, 0],
+    'c': [1, 0, 0, 1, 0, 0],
+    'd': [1, 0, 0, 1, 1, 0],
+    'e': [1, 0, 0, 0, 1, 0],
+    'f': [1, 1, 0, 1, 0, 0],
+    'g': [1, 1, 0, 1, 1, 0],
+    'h': [1, 1, 0, 0, 1, 0],
+    'i': [0, 1, 0, 1, 0, 0],
+    'j': [0, 1, 0, 1, 1, 0],
+    'k': [1, 0, 1, 0, 0, 0],
+    'l': [1, 1, 1, 0, 0, 0],
+    'm': [1, 0, 1, 1, 0, 0],
+    'n': [1, 0, 1, 1, 1, 0],
+    'o': [1, 0, 1, 0, 1, 0],
+    'p': [1, 1, 1, 1, 0, 0],
+    'q': [1, 1, 1, 1, 1, 0],
+    'r': [1, 1, 1, 0, 1, 0],
+    's': [0, 1, 1, 1, 0, 0],
+    't': [0, 1, 1, 1, 1, 0],
+    'u': [1, 0, 1, 0, 0, 1],
+    'v': [1, 1, 1, 0, 0, 1],
+    'w': [0, 1, 0, 1, 1, 1],
+    'x': [1, 0, 1, 1, 0, 1],
+    'y': [1, 0, 1, 1, 1, 1],
+    'z': [1, 0, 1, 0, 1, 1],
+    ' ': [0, 0, 0, 0, 0, 0],
+    '0': [0, 1, 0, 1, 1, 0],
+    '1': [1, 0, 0, 0, 0, 0],
+    '2': [1, 1, 0, 0, 0, 0],
+    '3': [1, 0, 0, 1, 0, 0],
+    '4': [1, 0, 0, 1, 1, 0],
+    '5': [1, 0, 0, 0, 1, 0],
+    '6': [1, 1, 0, 1, 0, 0],
+    '7': [1, 1, 0, 1, 1, 0],
+    '8': [1, 1, 0, 0, 1, 0],
+    '9': [0, 1, 0, 1, 0, 0],
+    '.': [0, 1, 0, 0, 1, 1],
+    ',': [0, 1, 0, 0, 0, 0],
+    '?': [0, 1, 1, 0, 0, 1],
+    '!': [0, 1, 1, 0, 1, 0],
+    '-': [0, 0, 1, 0, 0, 1],
+    ':': [0, 1, 0, 0, 1, 0],
+    ';': [0, 1, 1, 0, 0, 0],
+    '/': [0, 0, 1, 1, 0, 0],
+    '+': [0, 0, 1, 0, 1, 1],
+    '=': [0, 0, 1, 1, 1, 1],
+};
+
+// Convert text to Braille pattern array
+function textToBraille(text) {
+    const normalized = text.toLowerCase();
+    const patterns = [];
+    
+    for (let char of normalized) {
+        if (BRAILLE_MAP[char]) {
+            patterns.push(BRAILLE_MAP[char]);
+        } else {
+            // Unknown character - use blank
+            patterns.push([0, 0, 0, 0, 0, 0]);
+        }
+    }
+    
+    return patterns;
+}
+
+// Get Braille pattern for a single character
+function getBraillePattern(char) {
+    const normalized = char.toLowerCase();
+    return BRAILLE_MAP[normalized] || [0, 0, 0, 0, 0, 0];
+}

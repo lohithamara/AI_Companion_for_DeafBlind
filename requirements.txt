@@ -1,0 +1,18 @@
+# Core Dependencies
+Flask==3.0.0
+Flask-CORS==4.0.0
+python-dotenv==1.0.0
+gunicorn==21.2.0
+
+# Speech Recognition
+SpeechRecognition==3.10.0
+pyaudio==0.2.14
+
+# LLM - Groq (updated for compatibility)
+groq>=0.9.0
+
+# Text Processing
+nltk==3.8.1
+
+# Utilities
+requests==2.31.0
